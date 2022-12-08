@@ -25,13 +25,14 @@ export class CoffeesController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    console.log(typeof id);
-    return this.coffeesService.findOne('' + id);
+    // type number thank's to ValidationPipe
+    // console.log(typeof id);
+    return this.coffeesService.findOne(id);
   }
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
-    console.log(createCoffeeDto instanceof CreateCoffeeDto);
+    // console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
   }
 
@@ -41,7 +42,7 @@ export class CoffeesController {
   }
 
   @Delete(':id')
-  removes(@Param('id') id: string) {
+  removes(@Param('id') id: number) {
     return this.coffeesService.remove(id);
   }
 }

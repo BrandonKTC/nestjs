@@ -9,6 +9,9 @@ async function bootstrap() {
       transform: true, // generate an instance of the require type
       whitelist: true, // return expected value
       forbidNonWhitelisted: true, // don't accept unwanted request value
+      transformOptions: {
+        enableImplicitConversion: true, // Check the type
+      },
     }),
   );
   await app.listen(3000);
